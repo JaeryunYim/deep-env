@@ -6,4 +6,4 @@ c.NotebookApp.ip = '0.0.0.0'
 c.NotebookApp.open_browser = False
 c.NotebookApp.allow_root = True
 c.NotebookApp.notebook_dir = env['HOME']
-c.NotebookApp.password = unicode(passwd(env['JUPYTER_PASSWD']))
+c.NotebookApp.password = passwd(env['JUPYTER_PASSWD'])
