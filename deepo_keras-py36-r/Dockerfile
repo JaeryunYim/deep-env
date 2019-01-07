@@ -100,10 +100,12 @@ RUN PIP_INSTALL="pip --no-cache-dir install --upgrade" && \
     $PIP_INSTALL \
         Cython \
         feather-format \
+        flake8 \
         h5py \
         ipywidgets \
         jax \
         jupyter \
+        jupyternotify \
         keras \
         matplotlib \
         numpy \
