@@ -1,22 +1,59 @@
 version: '2.4'
 services:
 
-  keras-py36-r:
-    build:
-      context: ./deepo_keras-py36-r
+  service-0:
     image: encoredtechr/deepo:keras-py36-r
-    depends_on:
-      - cuda90_cudnn7
     ports:
-      - 8888:8888
-      - 6006:6006
-      - 8787:8787
+      - 8880:8888
+      - 6000:6006
+      - 8780:8787
     environment:
       - JUPYTER_PASSWD=${JUPYTER_PASSWD}
+      - NVIDIA_VISIBLE_DEVICES=0
     volumes:
       - ./jupyter-config:/root/.jupyter
     runtime: nvidia
     command: /init jupyter notebook
 
-  cuda90_cudnn7:
-    image: nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+  service-1:
+    image: encoredtechr/deepo:keras-py36-r
+    ports:
+      - 8881:8888
+      - 6001:6006
+      - 8781:8787
+    environment:
+      - JUPYTER_PASSWD=${JUPYTER_PASSWD}
+      - NVIDIA_VISIBLE_DEVICES=1
+    volumes:
+      - ./jupyter-config:/root/.jupyter
+    runtime: nvidia
+    command: /init jupyter notebook
+
+  service-2:
+    image: encoredtechr/deepo:keras-py36-r
+    ports:
+      - 8882:8888
+      - 6002:6006
+      - 8782:8787
+    environment:
+      - JUPYTER_PASSWD=${JUPYTER_PASSWD}
+      - NVIDIA_VISIBLE_DEVICES=2
+    volumes:
+      - ./jupyter-config:/root/.jupyter
+    runtime: nvidia
+    command: /init jupyter notebook
+
+  service-3:
+    image: encoredtechr/deepo:keras-py36-r
+    ports:
+      - 8883:8888
+      - 6003:6006
+      - 8783:8787
+    environment:
+      - JUPYTER_PASSWD=${JUPYTER_PASSWD}
+      - NVIDIA_VISIBLE_DEVICES=3
+    volumes:
+      - ./jupyter-config:/root/.jupyter
+    runtime: nvidia
+    command: /init jupyter notebook
+
