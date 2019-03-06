@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------
 # r             latest (apt)
 # python        3.6    (pyenv)
-# tensorflow    latest (pip)
+# tensorflow    latest within restriction (pip)
 # keras         latest (pip)
 # ==================================================================
 
@@ -35,6 +35,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         gdebi-core \
         git \
         less \
+        libcurl4-openssl-dev \
         software-properties-common \
         ssh \
         vim
@@ -98,6 +99,7 @@ RUN PIP_INSTALL="pip --no-cache-dir install --upgrade" && \
         && \
     # tools
     $PIP_INSTALL \
+        bokeh \
         Cython \
         feather-format \
         flake8 \
@@ -113,10 +115,11 @@ RUN PIP_INSTALL="pip --no-cache-dir install --upgrade" && \
         pipenv \
         pyarrow \
         python-dateutil \
+        requests \
         scikit-learn \
         scipy \
         seaborn \
-        tensorflow-gpu \
+        'tensorflow-gpu>=1.8.0,<1.13.0' \
         tqdm
 
 # ==================================================================
