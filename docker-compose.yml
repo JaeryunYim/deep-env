@@ -4,9 +4,7 @@ services:
   keras-py36-r:
     build:
       context: ./deepo_keras-py36-r
-    image: encoredtechr/deepo:keras-py36-r
-    depends_on:
-      - cuda90_cudnn7
+    image: encoredtechr/deepo-keras-py36-r
     ports:
       - 8888:8888
       - 6006:6006
@@ -17,6 +15,3 @@ services:
       - ./jupyter-config:/root/.jupyter
     runtime: nvidia
     command: /init jupyter notebook
-
-  cuda90_cudnn7:
-    image: nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
